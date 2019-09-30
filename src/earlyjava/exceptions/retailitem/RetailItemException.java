@@ -23,5 +23,4 @@ public class RetailItemException {
         System.exit(0);
     }
 
-    
 }
