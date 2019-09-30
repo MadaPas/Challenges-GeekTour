@@ -1,4 +1,4 @@
-package earlyjava.methodclass2.capitalizer.savingsaccount;
+package earlyjava.methodclass2.savingsaccount;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package earlyjava.methodclass2.capitalizer.savingsaccount;
+package earlyjava.methodclass2.savingsaccount;
 
 class SavingsAccount {
     private double interestRate, balance;
