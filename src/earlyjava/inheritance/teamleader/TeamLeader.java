@@ -1,23 +1,29 @@
-package team.leader.pkgclass.pkg103;
+package earlyjava.inheritance.teamleader;
 
 class TeamLeader extends ProductionWorker {
     private double monthlyBonus, minTrainingHours, trainingHoursAttended;
-    public void setMonthlyBonus(double b){
+
+    public void setMonthlyBonus(double b) {
         monthlyBonus = b;
     }
-    public void setMinTrainingHours(double m){
+
+    public void setMinTrainingHours(double m) {
         minTrainingHours = m;
     }
-    public void setTrainingHoursAttended(double a){
+
+    public void setTrainingHoursAttended(double a) {
         trainingHoursAttended = a;
     }
-    public double getMonthlyBonus(){
+
+    public double getMonthlyBonus() {
         return monthlyBonus;
     }
-    public double getMinTrainingHours(){
+
+    public double getMinTrainingHours() {
         return minTrainingHours;
     }
-    public double getTrainingHoursAttended(){
+
+    public double getTrainingHoursAttended() {
         return trainingHoursAttended;
     }
 }

@@ -1,17 +1,21 @@
-package shift.supervisor.pkgclass.pkg102;
+package earlyjava.inheritance.supervisor;
 
-class ShiftSupervisor extends Employee{
+class ShiftSupervisor extends Employee {
     private double annualSalary, annualBonus;
-    public void setSalary(double s){
+
+    public void setSalary(double s) {
         annualSalary = s;
     }
-    public void setBonus(double b){
+
+    public void setBonus(double b) {
         annualBonus = b;
     }
-    public double getAnnualSalary(){
+
+    public double getAnnualSalary() {
         return annualSalary;
     }
-    public double getAnnualBonus(){
+
+    public double getAnnualBonus() {
         return annualBonus;
     }
 }

@@ -1,4 +1,4 @@
-package word.separator;
+package earlyjava.inheritance.wordseparator;
 
 import javax.swing.JOptionPane;
 
@@ -10,8 +10,8 @@ public class WordSeparator {
         StringBuilder b = new StringBuilder(input);
         Separate s = new Separate(b);
         System.exit(0);
-        
-        
+
+
     }
 
 }

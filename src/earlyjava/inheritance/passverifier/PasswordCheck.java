@@ -1,29 +1,29 @@
-package password.verifier;
+package earlyjava.inheritance.passverifier;
 
 class PasswordCheck {
-    private String password;
-    private boolean hasUpperCase=false, hasLowerCase=false, hasNumber=false, hasLength=false;
+    private boolean hasUpperCase = false, hasLowerCase = false, hasNumber = false, hasLength = false;
+
     public PasswordCheck(String pass) {
-        password = pass;
-        for(int i=0; i<password.length(); i++){
-            if(Character.isLowerCase(password.charAt(i))){
-                hasLowerCase=true;
+        for (int i = 0; i < pass.length(); i++) {
+            if (Character.isLowerCase(pass.charAt(i))) {
+                hasLowerCase = true;
             }
-            if(Character.isUpperCase(password.charAt(i))){
-                hasUpperCase=true;
+            if (Character.isUpperCase(pass.charAt(i))) {
+                hasUpperCase = true;
             }
-            if(Character.isDigit(password.charAt(i))){
-                hasNumber=true;
+            if (Character.isDigit(pass.charAt(i))) {
+                hasNumber = true;
             }
-            if(password.length()>=6){
-                hasLength=true;
+            if (pass.length() >= 6) {
+                hasLength = true;
             }
         }
     }
-    public boolean checkPassword(){
-        if(hasLowerCase&&hasUpperCase&&hasNumber&&hasLength){
+
+    public boolean checkPassword() {
+        if (hasLowerCase && hasUpperCase && hasNumber && hasLength) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

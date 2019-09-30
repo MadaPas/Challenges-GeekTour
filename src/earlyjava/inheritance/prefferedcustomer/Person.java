@@ -1,30 +1,38 @@
-package preferredcustomer.pkgclass.pkg10.pkg8;
+package earlyjava.inheritance.prefferedcustomer;
 
 class Person {
     private String name, address, phone;
-    public Person(){
+
+    public Person() {
     }
-    public Person(String n, String a, String p){
+
+    public Person(String n, String a, String p) {
         name = n;
         address = a;
         phone = p;
     }
-    public void setName(String n){
+
+    public void setName(String n) {
         name = n;
     }
-    public void setAddress(String a){
+
+    public void setAddress(String a) {
         address = a;
     }
-    public void setPhone(String p){
+
+    public void setPhone(String p) {
         phone = p;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public String getAddress(){
+
+    public String getAddress() {
         return address;
     }
-    public String getPhone(){
+
+    public String getPhone() {
         return phone;
     }
 }

@@ -1,41 +1,52 @@
-package course.grades.pkg105;
+package earlyjava.inheritance.grades;
 
-class Essay extends GradedActivity{
+class Essay extends GradedActivity {
     private int grammar, spelling, correctLength, content;
-    public Essay(int g, int s, int cL, int ct){
+
+    public Essay(int g, int s, int cL, int ct) {
         grammar = g;
         spelling = s;
         correctLength = cL;
         content = ct;
     }
-    public Essay(){
-        
+
+    public Essay() {
+
     }
-    public void doTotal(){
-        super.setScore(grammar+spelling+correctLength+content);
+
+    public void doTotal() {
+        super.setScore(grammar + spelling + correctLength + content);
     }
-    public void setGrammar(int g){
+
+    public void setGrammar(int g) {
         grammar = g;
     }
-    public void setSpelling(int s){
+
+    public void setSpelling(int s) {
         spelling = s;
     }
-    public void setCorrectLength(int l){
+
+    public void setCorrectLength(int l) {
         correctLength = l;
     }
-    public void setContent(int c){
+
+    public void setContent(int c) {
         content = c;
     }
-    public int getGrammar(){
+
+    public int getGrammar() {
         return grammar;
     }
-    public int getSpelling(){
+
+    public int getSpelling() {
         return spelling;
     }
-    public int getCorrectLength(){
+
+    public int getCorrectLength() {
         return correctLength;
     }
-    public int getContent(){
+
+    public int getContent() {
         return content;
     }
 }
