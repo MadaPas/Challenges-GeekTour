@@ -1,4 +1,4 @@
-package monthlysalestax;
+package earlyjava.gui1.monthlysalestax;
 
 public class MonthlySalesTax {
 

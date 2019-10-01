@@ -1,4 +1,4 @@
-package mpgcalculator;
+package earlyjava.gui1.mpgcalculator;
 
 public class MPGCalculator {
 

@@ -1,4 +1,4 @@
-package joesautomotive;
+package earlyjava.gui1.joesautomotive;
 
 public class JoesAutomotive {
 

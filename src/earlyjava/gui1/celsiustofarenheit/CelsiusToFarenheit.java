@@ -1,4 +1,4 @@
-package celsiustofarenheit;
+package earlyjava.gui1.celsiustofarenheit;
 
 public class CelsiusToFarenheit {
 

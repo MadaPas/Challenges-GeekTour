@@ -1,4 +1,4 @@
-package retailpricecalculator;
+package earlyjava.gui1.retailpricecalculator;
 
 public class RetailPriceCalculator {
 

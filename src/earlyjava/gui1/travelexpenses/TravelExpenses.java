@@ -1,4 +1,4 @@
-package travelexpenses;
+package earlyjava.gui1.travelexpenses;
 
 public class TravelExpenses {
 

@@ -1,19 +1,21 @@
-package mpgcalculator;
+package earlyjava.gui1.mpgcalculator;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class CalcGUI extends JFrame{
+class CalcGUI extends JFrame {
     private JLabel gallonsHeldLabel, milesLabel;
     private JTextField gallonsHeldField, milesField;
     private JButton calcButton;
+
     public CalcGUI() {
         setTitle("MPG Calculator");
-        setSize(300,300);
-        setLayout(new GridLayout(3,1));
+        setSize(300, 300);
+        setLayout(new GridLayout(3, 1));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         gallonsHeldLabel = new JLabel("Gallons held");
         milesLabel = new JLabel("Miles per full tank");
         gallonsHeldField = new JTextField(3);
@@ -23,36 +25,38 @@ class CalcGUI extends JFrame{
         JPanel milesPanel = new JPanel();
         gallonsPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         milesPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        
-        gallonsPanel.add(gallonsHeldLabel);        
+
+        gallonsPanel.add(gallonsHeldLabel);
         gallonsPanel.add(gallonsHeldField);
-        
+
         milesPanel.add(milesLabel);
         milesPanel.add(milesField);
-        
+
         calcButton.addActionListener(new ButtonListen());
-        
+
         add(gallonsPanel);
         add(milesPanel);
         add(calcButton);
-        
+
         pack();
         setVisible(true);
     }
-    private class ButtonListen implements ActionListener{
-        public void actionPerformed(ActionEvent e){
+
+    public static void main(String[] args) {
+        new CalcGUI();
+    }
+
+    private class ButtonListen implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             double milesAmt;
             double gallonAmt;
-            try{
+            try {
                 milesAmt = Double.parseDouble(milesField.getText());
                 gallonAmt = Double.parseDouble(gallonsHeldField.getText());
-                JOptionPane.showMessageDialog(null,"This car gets "+(milesAmt/gallonAmt)+" miles per gallon.");
-            }catch(NumberFormatException ex){
-                JOptionPane.showMessageDialog(null,"Error; incomplete or invalid data provided.");
+                JOptionPane.showMessageDialog(null, "This car gets " + (milesAmt / gallonAmt) + " miles per gallon.");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Error; incomplete or invalid data provided.");
             }
         }
-    }
-    public static void main(String[] args){
-        new CalcGUI();
     }
 }

@@ -1,4 +1,4 @@
-package propertytax;
+package earlyjava.gui1.propertytax;
 
 public class PropertyTax {
 

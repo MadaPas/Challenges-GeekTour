@@ -1,31 +1,39 @@
-package travelexpenses;
+package earlyjava.gui1.travelexpenses;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.text.DecimalFormat;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.text.DecimalFormat;
 
-class TravelExpenseCalculator extends JFrame{
+class TravelExpenseCalculator extends JFrame {
     private final double MEAL_REIM = 37, PARKING_REIM = 10, TAXI_REIM = 20, LODGING_REIM = 95, MILES_REIM = .27;
     private JPanel totalDaysPanel, airfarePanel, carRentalPanel, milesDrivenPanel,
-                    parkingFeePanel, taxiPanel, registrationPanel, lodgingPanel;
+            parkingFeePanel, taxiPanel, registrationPanel, lodgingPanel;
     private JTextField totalDaysField, airfareField, carRentalField, milesDrivenField,
-                    parkingFeeField, taxiField, registrationField, lodgingField;
+            parkingFeeField, taxiField, registrationField, lodgingField;
     private JLabel totalDaysLabel, airfareLabel, carRentalLabel, milesDrivenLabel,
-                    parkingFeeLabel, taxiLabel, registrationLabel, lodgingLabel;
+            parkingFeeLabel, taxiLabel, registrationLabel, lodgingLabel;
     private JButton calcButton;
     private JCheckBox rentalCheck;
-    
+
     public TravelExpenseCalculator() {
         setTitle("Travel Expense Calculator");
-        setSize(339,190);
+        setSize(339, 190);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         buildPanel();
-        
+
         setVisible(true);
     }
-    public void buildPanel(){
+
+    public static void main(String[] args) {
+        new TravelExpenseCalculator();
+    }
+
+    public void buildPanel() {
         setLayout(new BorderLayout());
         totalDaysLabel = new JLabel("Total days");
         airfareLabel = new JLabel("Airfare fees $");
@@ -36,8 +44,8 @@ class TravelExpenseCalculator extends JFrame{
         registrationLabel = new JLabel("Regsitration fees $");
         lodgingLabel = new JLabel("Lodging fees(p/n) $");
         calcButton = new JButton("Calculate");
-        rentalCheck = new JCheckBox("Rental car",true);
-        
+        rentalCheck = new JCheckBox("Rental car", true);
+
         totalDaysField = new JTextField(4);
         airfareField = new JTextField(4);
         carRentalField = new JTextField(4);
@@ -48,8 +56,8 @@ class TravelExpenseCalculator extends JFrame{
         taxiField = new JTextField(4);
         registrationField = new JTextField(4);
         lodgingField = new JTextField(4);
-        
-        JPanel rentalCheckPanel = new JPanel();  
+
+        JPanel rentalCheckPanel = new JPanel();
         rentalCheckPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         totalDaysPanel = new JPanel();
         totalDaysPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -67,7 +75,7 @@ class TravelExpenseCalculator extends JFrame{
         registrationPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         lodgingPanel = new JPanel();
         lodgingPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        
+
         rentalCheckPanel.add(rentalCheck);
         totalDaysPanel.add(totalDaysLabel);
         totalDaysPanel.add(totalDaysField);
@@ -85,16 +93,16 @@ class TravelExpenseCalculator extends JFrame{
         registrationPanel.add(registrationField);
         lodgingPanel.add(lodgingLabel);
         lodgingPanel.add(lodgingField);
-        
+
         rentalCheck.addItemListener(new CheckListener());
         calcButton.addActionListener(new CalcListener());
-        
+
         JPanel east = new JPanel();
-        east.setLayout(new GridLayout(5,1));
-        
+        east.setLayout(new GridLayout(5, 1));
+
         JPanel west = new JPanel();
-        west.setLayout(new GridLayout(5,1));
-        
+        west.setLayout(new GridLayout(5, 1));
+
         west.add(totalDaysPanel);
         west.add(airfarePanel);
         west.add(carRentalPanel);
@@ -108,13 +116,14 @@ class TravelExpenseCalculator extends JFrame{
         add(west, BorderLayout.WEST);
         add(calcButton, BorderLayout.SOUTH);
     }
-    private class CalcListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
+
+    private class CalcListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             DecimalFormat dollar = new DecimalFormat("$#,###,##0.00");
-            int totalDays=0;
-            double airfareFees=0, carRentalFees=0, milesDrivenFees=0,
-                    parkingFees=0, taxiFees=0, registrationFees=0, lodgingFees=0;
-            try{
+            int totalDays = 0;
+            double airfareFees = 0, carRentalFees = 0, milesDrivenFees = 0,
+                    parkingFees = 0, taxiFees = 0, registrationFees = 0, lodgingFees = 0;
+            try {
                 totalDays = Integer.parseInt(totalDaysField.getText());
                 airfareFees = Double.parseDouble(airfareField.getText());
                 carRentalFees = Double.parseDouble(carRentalField.getText());
@@ -128,40 +137,38 @@ class TravelExpenseCalculator extends JFrame{
                 double taxiReimbursed = totalDays * TAXI_REIM;
                 double lodgingReimbursed = totalDays * LODGING_REIM;
                 double milesReimbursed = milesDrivenFees * MILES_REIM;
-                double totalExpenses = airfareFees+carRentalFees+parkingFees+taxiFees
-                                        +registrationFees+lodgingFees;
+                double totalExpenses = airfareFees + carRentalFees + parkingFees + taxiFees
+                        + registrationFees + lodgingFees;
                 double reimbursedMoney = mealsReimbursed + parkingReimbursed + taxiReimbursed
-                                        +lodgingReimbursed + milesReimbursed;
-                double moneyOwed = totalExpenses-reimbursedMoney;
-                if(moneyOwed>0)
-                JOptionPane.showMessageDialog(null, "Total expenses: "+dollar.format(totalExpenses)
-                                                +"\nTotal allowed expenses: "+dollar.format(reimbursedMoney)
-                                                +"\nMoney owed: "+dollar.format(moneyOwed));
+                        + lodgingReimbursed + milesReimbursed;
+                double moneyOwed = totalExpenses - reimbursedMoney;
+                if (moneyOwed > 0)
+                    JOptionPane.showMessageDialog(null, "Total expenses: " + dollar.format(totalExpenses)
+                            + "\nTotal allowed expenses: " + dollar.format(reimbursedMoney)
+                            + "\nMoney owed: " + dollar.format(moneyOwed));
                 else
-                    JOptionPane.showMessageDialog(null, "Total expenses: "+dollar.format(totalExpenses)
-                                                +"\nTotal allowed expenses: "+dollar.format(reimbursedMoney)
-                                                +"\nSaved money: "+dollar.format(moneyOwed*-1));
-            }catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, "Total expenses: " + dollar.format(totalExpenses)
+                            + "\nTotal allowed expenses: " + dollar.format(reimbursedMoney)
+                            + "\nSaved money: " + dollar.format(moneyOwed * -1));
+            } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Error. Form not completed/contains invalid data.");
             }
         }
     }
-    private class CheckListener implements ItemListener{
-        public void itemStateChanged(ItemEvent e){
-            if(e.getSource()==rentalCheck){
-                if(rentalCheck.isSelected()){
+
+    private class CheckListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+            if (e.getSource() == rentalCheck) {
+                if (rentalCheck.isSelected()) {
                     carRentalField.setEditable(true);
                     milesDrivenField.setEditable(false);
                     milesDrivenField.setText("0");
-                }else{
+                } else {
                     carRentalField.setEditable(false);
                     milesDrivenField.setEditable(true);
                     carRentalField.setText("0");
                 }
             }
         }
-    }
-    public static void main(String[] args){
-        new TravelExpenseCalculator();
     }
 }
