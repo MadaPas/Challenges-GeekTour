@@ -15,12 +15,12 @@ class SavingsAccount {
         balance += balance * interestRate;
     }
 
-    public double deposit(double d) {
-        return balance += d;
+    public void deposit(double d) {
+        balance += d;
     }
 
-    public double withdraw(double w) {
-        return balance -= w;
+    public void withdraw(double w) {
+        balance -= w;
     }
 
     public double getBalance() {

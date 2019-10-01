@@ -7,7 +7,7 @@ public class SavingsAccountMain {
 
     public static void main(String[] args) {
         DecimalFormat dollar = new DecimalFormat("$###,###,###,##0.00");
-        double balance, iRate, totInterest = 0, interest, totalDeposit = 0, totalWithdrawals = 0;
+        double balance, iRate, totInterest = 0, totalDeposit = 0, totalWithdrawals = 0;
         int months;
         Scanner keyboard = new Scanner(System.in);
 
