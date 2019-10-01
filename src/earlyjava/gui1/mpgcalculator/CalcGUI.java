@@ -42,10 +42,6 @@ class CalcGUI extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new CalcGUI();
-    }
-
     private class ButtonListen implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             double milesAmt;

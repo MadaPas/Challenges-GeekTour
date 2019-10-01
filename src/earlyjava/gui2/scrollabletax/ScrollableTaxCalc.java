@@ -1,4 +1,4 @@
-package scrollable.tax.calc;
+package earlyjava.gui2.scrollabletax;
 
 public class ScrollableTaxCalc {
 

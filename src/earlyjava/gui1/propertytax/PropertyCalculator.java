@@ -42,10 +42,6 @@ class PropertyCalculator extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new PropertyCalculator();
-    }
-
     private class TaxListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             DecimalFormat dollar = new DecimalFormat("$#,###,##0.00");

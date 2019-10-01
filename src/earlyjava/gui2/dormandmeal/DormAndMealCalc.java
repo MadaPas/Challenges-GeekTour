@@ -1,4 +1,4 @@
-package dorm.and.meal.calc;
+package earlyjava.gui2.dormandmeal;
 
 public class DormAndMealCalc {
 

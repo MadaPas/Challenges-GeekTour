@@ -1,30 +1,32 @@
-package cell.phone.pkgpackage;
+package earlyjava.gui2.cellphone;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.text.*;
 import javax.swing.*;
-import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.text.DecimalFormat;
 
-class PackageGUI extends JFrame{
+class PackageGUI extends JFrame {
     private final double MODEL100PRICE = 29.95, MODEL110PRICE = 49.95, MODEL200PRICE = 99.95;
     private final int MINUTE300PRICE = 45, MINUTE800PRICE = 65, MINUTE1500PRICE = 99;
     private final int VOICEPRICE = 5, TEXTPRICE = 10;
-    
+
     private final DecimalFormat DOLLAR = new DecimalFormat("$#,###,##0.00");
-    
+
     private JMenuBar menuBar;
     private JMenu modelMenu, minuteMenu, extraMenu;
     private JRadioButtonMenuItem model100Item, model110Item, model200Item;
     private JRadioButtonMenuItem minute300Item, minute800Item, minute1500Item;
     private JCheckBoxMenuItem voiceMailItem, textMessageItem;
     private boolean textMessagingSelected, voiceMailSelected;
-    
+
     private JTextField selectedModelField, selectedMinuteField, textMessageField, voiceMailField;
     private JLabel selectedModelLabel, selectedMinuteLabel, textMessageLabel, voiceMailLabel, totalLabel;
     private JTextField modelCost, minuteCost, textCost, voiceCost, totalCost;
-    private double modelFinalCost=29.95, minuteFinalCost=65, textFinalCost=0, voiceFinalCost=5;
-    
+    private double modelFinalCost = 29.95, minuteFinalCost = 65, textFinalCost = 0, voiceFinalCost = 5;
+
     public PackageGUI() {
         setTitle("Phone package calculator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,12 +35,13 @@ class PackageGUI extends JFrame{
         pack();
         setVisible(true);
     }
-    private void buildPanel(){
-        setLayout(new GridLayout(5,3,5,9));
-        selectedModelField = new JTextField("Model 100",5);
-        selectedMinuteField = new JTextField("800 min/month",5);
-        textMessageField = new JTextField("Disabled",5);
-        voiceMailField = new JTextField("Enabled",5);
+
+    private void buildPanel() {
+        setLayout(new GridLayout(5, 3, 5, 9));
+        selectedModelField = new JTextField("Model 100", 5);
+        selectedMinuteField = new JTextField("800 min/month", 5);
+        textMessageField = new JTextField("Disabled", 5);
+        voiceMailField = new JTextField("Enabled", 5);
         selectedModelLabel = new JLabel("Selected model: ");
         selectedMinuteLabel = new JLabel("Selected package: ");
         textMessageLabel = new JLabel("Text messaging: ");
@@ -48,8 +51,8 @@ class PackageGUI extends JFrame{
         textCost = new JTextField(DOLLAR.format(textFinalCost));
         voiceCost = new JTextField(DOLLAR.format(voiceFinalCost));
         totalLabel = new JLabel("Total cost: ");
-        totalCost = new JTextField(DOLLAR.format(modelFinalCost+minuteFinalCost+textFinalCost+voiceFinalCost));
-        
+        totalCost = new JTextField(DOLLAR.format(modelFinalCost + minuteFinalCost + textFinalCost + voiceFinalCost));
+
         totalCost.setEditable(false);
         modelCost.setEditable(false);
         minuteCost.setEditable(false);
@@ -59,7 +62,7 @@ class PackageGUI extends JFrame{
         selectedMinuteField.setEditable(false);
         textMessageField.setEditable(false);
         voiceMailField.setEditable(false);
-        
+
         add(selectedModelLabel);
         add(selectedModelField);
         add(modelCost);
@@ -75,14 +78,16 @@ class PackageGUI extends JFrame{
         add(totalLabel);
         add(totalCost);
     }
-    private void buildMenu(){
+
+    private void buildMenu() {
         menuBar = new JMenuBar();
         buildModelMenu();
         buildMinuteMenu();
         buildExtraMenu();
         setJMenuBar(menuBar);
     }
-    private void buildModelMenu(){
+
+    private void buildModelMenu() {
         modelMenu = new JMenu("Model");
         model100Item = new JRadioButtonMenuItem("Model 100", true);
         model110Item = new JRadioButtonMenuItem("Model 110");
@@ -99,7 +104,8 @@ class PackageGUI extends JFrame{
         modelMenu.add(model200Item);
         menuBar.add(modelMenu);
     }
-    private void buildMinuteMenu(){
+
+    private void buildMinuteMenu() {
         minuteMenu = new JMenu("Minutes Package");
         minute300Item = new JRadioButtonMenuItem("300 minutes");
         minute800Item = new JRadioButtonMenuItem("800 minutes", true);
@@ -116,7 +122,8 @@ class PackageGUI extends JFrame{
         minuteMenu.add(minute1500Item);
         menuBar.add(minuteMenu);
     }
-    private void buildExtraMenu(){
+
+    private void buildExtraMenu() {
         extraMenu = new JMenu("Additional Services");
         voiceMailItem = new JCheckBoxMenuItem("Voice Mail", true);
         textMessageItem = new JCheckBoxMenuItem("Text messaging");
@@ -128,63 +135,66 @@ class PackageGUI extends JFrame{
         extraMenu.add(textMessageItem);
         menuBar.add(extraMenu);
     }
-    private class ModelListener implements ItemListener{
-        public void itemStateChanged(ItemEvent e){
-            if(model100Item.isSelected()){
+
+    private class ModelListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+            if (model100Item.isSelected()) {
                 modelFinalCost = MODEL100PRICE;
                 selectedModelField.setText("Model 100");
-            }else if(model110Item.isSelected()){
+            } else if (model110Item.isSelected()) {
                 modelFinalCost = MODEL110PRICE;
                 selectedModelField.setText("Model 110");
-            }else if(model200Item.isSelected()){
+            } else if (model200Item.isSelected()) {
                 modelFinalCost = MODEL200PRICE;
                 selectedModelField.setText("Model 200");
             }
             modelCost.setText(DOLLAR.format(modelFinalCost));
-            totalCost.setText(DOLLAR.format(modelFinalCost+minuteFinalCost+textFinalCost+voiceFinalCost));
+            totalCost.setText(DOLLAR.format(modelFinalCost + minuteFinalCost + textFinalCost + voiceFinalCost));
         }
     }
-    private class MinuteListener implements ItemListener{
-        public void itemStateChanged(ItemEvent e){
-            if(minute300Item.isSelected()){
+
+    private class MinuteListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+            if (minute300Item.isSelected()) {
                 selectedMinuteField.setText("300 min/month");
                 minuteFinalCost = MINUTE300PRICE;
-            }else if(minute800Item.isSelected()){
+            } else if (minute800Item.isSelected()) {
                 selectedMinuteField.setText("800 min/month");
                 minuteFinalCost = MINUTE800PRICE;
-            }else if(minute1500Item.isSelected()){
+            } else if (minute1500Item.isSelected()) {
                 selectedMinuteField.setText("1500 min/month");
                 minuteFinalCost = MINUTE1500PRICE;
             }
             minuteCost.setText(DOLLAR.format(minuteFinalCost));
-            totalCost.setText(DOLLAR.format(modelFinalCost+minuteFinalCost+textFinalCost+voiceFinalCost));
+            totalCost.setText(DOLLAR.format(modelFinalCost + minuteFinalCost + textFinalCost + voiceFinalCost));
         }
     }
-    private class ExtraListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            
-            if(e.getSource()==voiceMailItem){
-                if(voiceMailItem.isSelected()){
+
+    private class ExtraListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+
+            if (e.getSource() == voiceMailItem) {
+                if (voiceMailItem.isSelected()) {
                     voiceFinalCost = VOICEPRICE;
                     voiceMailField.setText("Enabled");
-                }else{
+                } else {
                     voiceFinalCost = 0;
                     voiceMailField.setText("Disabled");
                 }
                 voiceCost.setText(DOLLAR.format(voiceFinalCost));
             }
-            if(e.getSource()==textMessageItem){
-                if(textMessageItem.isSelected()){
+            if (e.getSource() == textMessageItem) {
+                if (textMessageItem.isSelected()) {
                     textFinalCost = TEXTPRICE;
                     textMessageField.setText("Enabled");
-                }else{
+                } else {
                     textFinalCost = 0;
                     textMessageField.setText("Disabled");
-                    
+
                 }
                 textCost.setText(DOLLAR.format(textFinalCost));
             }
-            totalCost.setText(DOLLAR.format(modelFinalCost+minuteFinalCost+textFinalCost+voiceFinalCost));
+            totalCost.setText(DOLLAR.format(modelFinalCost + minuteFinalCost + textFinalCost + voiceFinalCost));
         }
     }
 }

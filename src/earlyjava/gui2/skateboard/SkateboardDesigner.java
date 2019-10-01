@@ -1,4 +1,4 @@
-package skateboard.designer;
+package earlyjava.gui2.skateboard;
 
 public class SkateboardDesigner {
 

@@ -73,7 +73,5 @@ class RevenueCalculator extends JFrame{
                                         +"\nTotal net revenue: "+dollar.format(totalNetRev));
         }
     }
-    public static void main(String[] args){
-        new RevenueCalculator();
-    }
 }
+

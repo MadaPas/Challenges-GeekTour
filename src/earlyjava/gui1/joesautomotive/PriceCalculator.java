@@ -26,10 +26,6 @@ class PriceCalculator extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new PriceCalculator();
-    }
-
     public void buildPanel() {
         setLayout(new BorderLayout());
 

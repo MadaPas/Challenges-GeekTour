@@ -1,4 +1,4 @@
-package image.viewer;
+package earlyjava.gui2.imageviewer;
 
 public class ImageViewer {
 

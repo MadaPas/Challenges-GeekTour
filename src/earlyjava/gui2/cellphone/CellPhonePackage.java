@@ -1,4 +1,4 @@
-package cell.phone.pkgpackage;
+package earlyjava.gui2.cellphone;
 
 public class CellPhonePackage {
 

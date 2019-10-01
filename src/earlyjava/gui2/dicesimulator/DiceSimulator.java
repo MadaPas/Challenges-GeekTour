@@ -1,4 +1,4 @@
-package dice.simulator;
+package earlyjava.gui2.dicesimulator;
 
 public class DiceSimulator {
 

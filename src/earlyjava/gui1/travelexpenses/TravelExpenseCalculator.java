@@ -29,10 +29,6 @@ class TravelExpenseCalculator extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new TravelExpenseCalculator();
-    }
-
     public void buildPanel() {
         setLayout(new BorderLayout());
         totalDaysLabel = new JLabel("Total days");

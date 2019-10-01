@@ -1,4 +1,4 @@
-package conference.reg.system;
+package earlyjava.gui2.conferenceregistration;
 
 public class ConferenceRegSystem {
 
